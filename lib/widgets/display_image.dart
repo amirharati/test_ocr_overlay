@@ -13,14 +13,14 @@ import 'package:path_provider/path_provider.dart';
   https://github.com/flutter-ml/google_ml_kit_flutter/tree/develop/packages/example
 */
 
-const String imageSrc = "assets/3.jpg";
+const String imageSrc = "assets/1.jpg";
 
 // code to convert a jpeg to InputImage
 Future<InputImage> inputImageFromJpegFile(File file) async {
   if (defaultTargetPlatform == TargetPlatform.iOS) {
     return inputImageFromJpegFileIOS(file); // iOS version
   } else {
-    return inputImageFromJpegFileAndroid(file); // Your existing Android version
+    return inputImageFromJpegFileAndroid(file); // Android version
   }
 }
 
@@ -128,7 +128,7 @@ Uint8List _convertToNV21(img.Image image) {
 
   return yuvBytes;
 }
-//
+// end of code related to converting jpeg to InputImage
 
 class DisplayImage extends StatefulWidget {
   const DisplayImage({super.key});
@@ -173,7 +173,6 @@ class _DisplayImageState extends State<DisplayImage> {
         }
       }
     }
-
     if (mounted) {
       setState(() {
         recognizedText = rt.text;
